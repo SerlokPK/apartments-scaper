@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>98481e1e-f9fb-43bb-8217-06d9437f5731</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>4zida-site.py</StartupFile>
+    <StartupFile>cityexpert-site.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="4zida-site.py" />
+    <Compile Include="cityexpert-site.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

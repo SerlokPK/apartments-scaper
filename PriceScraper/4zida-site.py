@@ -1,5 +1,4 @@
 import requests
-import re
 from bs4 import BeautifulSoup
 
 
@@ -14,6 +13,7 @@ def get_html(url):
 def filter_listings(html):
     soup = BeautifulSoup(html, "html.parser")
     listings = soup.find_all("div", class_="flex w-2/3 flex-col justify-between py-2")
+    price_per_sqm = 1800
 
     apartments = []
 
@@ -38,7 +38,7 @@ def filter_listings(html):
         except ValueError:
             continue  # skip this listing if there are issues with extracting values
 
-        if size <= 1800:
+        if size <= price_per_sqm:
             link = listing.find("a")["href"]
             apartments.append(
                 {
@@ -77,6 +77,7 @@ def main():
         all_results.extend(apartments)
         current_page += 1
 
+    all_results.sort(key=lambda x: x["price"])
     for result in all_results:
         print()
         print(f"Total price: {result['price']} EUR")
